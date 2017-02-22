@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FindJourneyworkWeb.Models;
+using FindJourneyworkWeb.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,30 @@ namespace FindJourneyworkWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+            UserListViewModel userListViewModel = new UserListViewModel();
+            UserBusinessLayer userBal = new UserBusinessLayer();
+
+            List<User> users = userBal.GetUsers();
+            List<UserViewModel> userViewModels = new List<UserViewModel>();
+
+            foreach (User user in users)
+            {
+                UserViewModel userViewModel = new UserViewModel();
+                userViewModel.FirstName = user.FirstName;
+                userViewModel.LastName = user.LastName;
+                userViewModel.Email = user.Email;
+                userViewModel.Password = user.Password;
+                userViewModel.Phone = user.Phone;
+                userViewModel.UserType = user.UserType;
+
+                userListViewModel.Users = userViewModels;
+
+                userViewModels.Add(userViewModel);
+            }
+
+
+            return View("Index", userListViewModel);
         }
 
         public ActionResult About()

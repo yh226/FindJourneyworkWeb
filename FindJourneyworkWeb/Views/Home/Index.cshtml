@@ -1,8 +1,13 @@
-﻿@{
+﻿@using FindJourneyworkWeb.ViewModels
+@model UserListViewModel
+
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
@@ -28,4 +33,48 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+       
+        <table border="1">
+            <tr>
+                <th>email</th>
+                <th>password</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Phone</th>
+                <th>UserType</th>
+                
+            </tr>
+            @foreach (UserViewModel item in Model.Users)
+            {
+                <tr>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.UserType</td>
+                    @*<td style="background-color:@item.SalaryColor">@item.Salary</td>*@
+                </tr>
+            }
+
+
+        </table>
+
+
+
+
+
+    </div>
+</body>
+</html>

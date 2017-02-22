@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
-namespace FindJourneyworkWeb.Models
+namespace FindJourneyworkWeb.ViewModels
 {
-    public class User
+    public class UserViewModel
     {
-        [Key]
-        public int UserId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         //[Required(ErrorMessage = "Enter First Name")]
@@ -19,7 +16,5 @@ namespace FindJourneyworkWeb.Models
         public string Phone { get; set; }
         public string City { get; set; }
         public string UserType { get; set; }
-
-       
     }
 }
