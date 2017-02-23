@@ -27,16 +27,14 @@ namespace FindJourneyworkWeb.ViewModels
 
         public bool IsValidUser(User u)
         {
-            
-
-            if (u.Email == "Admin" && u.Password == "Admin")
+            List<User> userList = GetUsers();
+            foreach (User user in userList)
             {
-                return true;
+                if (u.Email == user.Email && u.Password == user.Password)
+                    return true;
+                
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

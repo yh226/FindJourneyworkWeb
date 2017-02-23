@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <script>
+        function ResetForm() {
+            document.getElementById('TxtEmail').value = "";
+            document.getElementById('TxtPassword').value = "";
+            document.getElementById('TxtFName').value = "";
+            document.getElementById('TxtPhone').value = "";
+            document.getElementById('TxtLName').value = "";
+            document.getElementById('TxtUserType').value = "";
+    }
+    </script>
+
+    <div> 
+        <br />
+        @*<form action="/Register/SaveUser" method="post">*@
+@using (Html.BeginForm("SaveUser", "Register", FormMethod.Post))
+{
+            <table>
+                <tr>
+                    <td>
+                        Email:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtEmail" name="Email" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("Email")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtPassword" name="Password" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("Password")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        First Name:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtFName" name="FirstName" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("FirstName")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Last Name:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtLName" name="LastName" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("LastName")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Phone:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtPhone" name="Phone" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("Phone")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        UserType:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtUserType" name="UserType" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("UserType")
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <br />
+                        <input type="submit" name="BtnSubmit" value="SaveUser" />
+                        <input type="submit" name="BtnSubmit" value="Cancel" />
+                        <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                    </td>
+                </tr>
+            </table>
+        @*</form>*@
+}
+</div>
+</body>
+</html>

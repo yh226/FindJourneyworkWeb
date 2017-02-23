@@ -16,26 +16,38 @@ namespace FindJourneyworkWeb.Controllers
         {
             return View();
         }
-        
+
 
         [HttpPost]
-        public ActionResult DoLogin(User u)
+        public ActionResult DoLogin(User u, string BtnSubmit)
         {
-            UserBusinessLayer bal = new UserBusinessLayer();
+            switch (BtnSubmit)
             {
-                if (bal.IsValidUser(u))
-                {
-                    FormsAuthentication.SetAuthCookie(u.Email, true);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("CredentialError", "Invalid Username or Password");
-                    return View("Index");
-                }
+                case "Login":
+                    UserBusinessLayer bal = new UserBusinessLayer();
+                    if (bal.IsValidUser(u))
+                    {
+                        FormsAuthentication.SetAuthCookie(u.Email, true);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("CredentialError", "Invalid Username or Password");
+                        return View("Index");
+                    }
+                case "Register":
+                    return RedirectToAction("Index", "Register");
             }
-
+            return new EmptyResult();
         }
+                 
+        
+        
+        
+          
+            
+
+        
 
         public ActionResult Logout()
         {
