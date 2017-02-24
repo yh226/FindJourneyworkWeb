@@ -11,10 +11,13 @@ namespace FindJourneyworkWeb.Models
         [Key]
         public int AssignmentId { get; set; }
         public string Date { get; set; }
-        public string Price { get; set; }
+       // public string Price { get; set; }
         public string Location { get; set; }
-        public string description { get; set; }
-        public string phone { get; set; }
+        public string Description { get; set; }
+        public string Phone { get; set; }
+        public string TypeWork { get; set; }
+        public string Image { get; set; }
+
 
     }
 }

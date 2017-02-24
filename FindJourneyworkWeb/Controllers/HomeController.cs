@@ -17,34 +17,32 @@ namespace FindJourneyworkWeb.Controllers
             UserBusinessLayer userBal = new UserBusinessLayer();
             TypeUserBusinessLayer TypeuserBal = new TypeUserBusinessLayer();
 
-           
+
             List<User> users = userBal.GetUsers();
-          
+
             //List<WorkType> worktypes = worktypeBal.GetWorkTypes();
 
-            List<UserViewModel> userViewModels = new List<UserViewModel>();
+            //List<UserViewModel> userViewModels = new List<UserViewModel>();
 
 
-           
-            
 
-            foreach (User user in users)
-            {
-                UserViewModel userViewModel = new UserViewModel();
-                userViewModel.FirstName = user.FirstName;
-                userViewModel.LastName = user.LastName;
-                userViewModel.Email = user.Email;
-                userViewModel.Password = user.Password;
-                userViewModel.Phone = user.Phone;
-                userViewModel.UserType = user.UserType;
+            //foreach (User user in users)
+            //{
+            //    UserViewModel userViewModel = new UserViewModel();
+            //    userViewModel.FirstName = user.FirstName;
+            //    userViewModel.LastName = user.LastName;
+            //    userViewModel.Email = user.Email;
+            //    userViewModel.Password = user.Password;
+            //    userViewModel.Phone = user.Phone;
+            //    userViewModel.UserType = user.UserType;
 
-                userListViewModel.Users = userViewModels;
+            //    userListViewModel.Users = userViewModels;
 
-                userViewModels.Add(userViewModel);
-            }
+            //    userViewModels.Add(userViewModel);
+            // }
+            return View();
 
-
-            return View("Index", userListViewModel);
+            //return View("Index", userListViewModel);
         }
 
         public ActionResult About()
