@@ -161,11 +161,14 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccessLaye\UserERPDAL.cs" />
+    <Compile Include="DataAccessLaye\TypeUserERPDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\TypeUser.cs" />
+    <Compile Include="Models\TypeUserBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\UserBusinessLayer.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />

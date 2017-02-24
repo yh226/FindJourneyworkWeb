@@ -102,11 +102,14 @@
                         UserType:
                     </td>
                     <td>
-                        <input type="text" id="TxtUserType" name="UserType" value="" />
+                        @Html.DropDownList("MydropDown", (SelectList)ViewBag.DropDownValues)
+                        @*<input type="text" id="TxtUserType" name="UserType" value="" />*@
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="right">
+                        @*@Html.Label("Choose User type: ")*@
+                        @*@Html.DropDownList("MydropDown", (SelectList)ViewBag.DropDownValues)*@
                         @Html.ValidationMessage("UserType")
                     </td>
                 </tr>

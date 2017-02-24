@@ -15,9 +15,18 @@ namespace FindJourneyworkWeb.Controllers
 
             UserListViewModel userListViewModel = new UserListViewModel();
             UserBusinessLayer userBal = new UserBusinessLayer();
+            TypeUserBusinessLayer TypeuserBal = new TypeUserBusinessLayer();
 
+           
             List<User> users = userBal.GetUsers();
+          
+            //List<WorkType> worktypes = worktypeBal.GetWorkTypes();
+
             List<UserViewModel> userViewModels = new List<UserViewModel>();
+
+
+           
+            
 
             foreach (User user in users)
             {

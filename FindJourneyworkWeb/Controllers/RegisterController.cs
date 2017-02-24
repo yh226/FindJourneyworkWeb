@@ -13,6 +13,12 @@ namespace FindJourneyworkWeb.Controllers
         // GET: Register
         public ActionResult Index()
         {
+            TypeUserBusinessLayer TypeuserBal = new TypeUserBusinessLayer();
+            List<TypeUser> TypesuserList = TypeuserBal.GetTypeUser();
+
+            SelectList Droplist = new SelectList(TypesuserList, "TypeId", "TypeName");
+            ViewBag.DropDownValues = Droplist;//new SelectList(new[] { "-" });
+
             return View();
         }
         public ActionResult AddNew()
@@ -29,7 +35,23 @@ namespace FindJourneyworkWeb.Controllers
                     if (ModelState.IsValid)
                     {
                         UserBusinessLayer userBal = new UserBusinessLayer();
-                        userBal.SaveUser(u);
+                        TypeUserBusinessLayer TypeuserBal = new TypeUserBusinessLayer();
+                        List<TypeUser> TypesuserList = TypeuserBal.GetTypeUser();
+
+                        string selectValueID = Request.Form["MydropDown"].ToString();
+                        for(int i=0;i< TypesuserList.Count; i++)
+                        {
+                            if (TypesuserList[i].TypeId.ToString().Equals(selectValueID))
+                            {
+                                u.UserType = TypesuserList[i].TypeName;
+                                userBal.SaveUser(u);
+                                return RedirectToAction("Index", "Login");
+                               // break;
+                            }
+                        }
+
+                        
+                        //userBal.SaveUser(u);
                         return RedirectToAction("Index", "Login");
 
                     }
