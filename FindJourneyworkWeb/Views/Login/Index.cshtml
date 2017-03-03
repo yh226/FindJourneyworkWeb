@@ -1,0 +1,52 @@
+﻿@model FindJourneyworkWeb.Models.User
+
+@{
+
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        <br />
+
+        @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+        @using (Html.BeginForm("DoLogin", "Login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(c => c.Email)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.Email)
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                       @Html.LabelFor(c => c.Password)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.Password)
+                    </td>
+                </tr>
+                <tr>
+            </table>
+          
+            <br />
+            <input type="submit" name="BtnSubmit" value="Login" />
+            <input type="submit" name="BtnSubmit" value="Register" />
+            
+        }
+        
+    </div>
+</body>
+</html>

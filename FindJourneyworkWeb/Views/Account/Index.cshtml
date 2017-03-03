@@ -1,0 +1,59 @@
+﻿@using FindJourneyworkWeb.ViewModels
+@model UserListViewModel
+
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <br />
+        <div style="text-align:left"> Hello, @Model.Email </div>
+
+
+        <br />
+        <table border="1">
+            <tr>
+                <th>email</th>
+                <th>password</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Phone</th>
+                <th>UserType</th>
+
+            </tr>
+            @foreach (UserViewModel item in Model.Users)
+            {
+                <tr>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.UserType</td>
+                    @*<td style="background-color:@item.SalaryColor">@item.Salary</td>*@
+                </tr>
+            }
+
+
+        </table>
+
+        <br />
+
+@using (Html.BeginForm("Logout", "Login", FormMethod.Post))
+{
+    <input type="submit" name="BtnSubmit" value="Logout" />
+}
+
+
+    </div>
+</body>
+</html>
